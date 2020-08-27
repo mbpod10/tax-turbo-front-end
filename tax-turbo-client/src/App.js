@@ -1,11 +1,23 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import * as ReactBootStrap from "react-bootstrap";
+import { Switch, Link, Route } from "react-router-dom";
+import Home from "./components/Home";
+import Login from "./components/Login";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <div className="App">
-      <h1>Tax Turbo</h1>
+      <NavBar />
+      <Switch>
+        <React.Fragment>
+          <main>
+            <Route exact path="/" render={(props) => <Home {...props} />} />
+            <Route path="/login" render={(props) => <Login {...props} />} />
+          </main>
+        </React.Fragment>
+      </Switch>
     </div>
   );
 }
