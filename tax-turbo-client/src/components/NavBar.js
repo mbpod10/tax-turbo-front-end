@@ -14,6 +14,11 @@ const NavBar = () => {
         <ReactBootStrap.Navbar.Brand>
           <Link to="/">Tax Turbo</Link>
         </ReactBootStrap.Navbar.Brand>
+
+        <ReactBootStrap.Navbar.Brand>
+          <Link to="/register">Register</Link>
+        </ReactBootStrap.Navbar.Brand>
+
         <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
           <ReactBootStrap.Nav className="mr-auto"></ReactBootStrap.Nav>

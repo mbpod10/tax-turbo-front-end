@@ -5,6 +5,7 @@ import { Switch, Link, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -15,6 +16,10 @@ function App() {
           <main>
             <Route exact path="/" render={(props) => <Home {...props} />} />
             <Route path="/login" render={(props) => <Login {...props} />} />
+            <Route
+              path="/register"
+              render={(props) => <Register {...props} />}
+            />
           </main>
         </React.Fragment>
       </Switch>

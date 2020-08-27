@@ -1,55 +1,52 @@
 import React, { useState } from "react";
 import axios from "axios";
-import LoginForm from "../forms/LoginForm";
+import RegistrationForm from "../forms/RegistrationForm";
 import APIConfig from "../APIConfig";
 
-const Login = (props) => {
+const Register = () => {
   const [input, setInput] = useState({
     user: {
       email: "",
       password: "",
+      password_confirmation: "",
     },
   });
+
   const handleChange = (event) => {
-    setInput({
-      ...input,
-      [event.target.name]: event.target.value,
-    });
+    setInput({ ...input, [event.target.name]: event.target.value });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("submiteed", input);
     axios
       .post(
-        `${APIConfig}/sessions`,
+        `${APIConfig}/registrations`,
         {
           user: {
             email: input.email,
             password: input.password,
+            password_confirmation: input.password_confirmation,
           },
         },
         { withCredentials: true }
       )
       .then((response) => {
-        console.log("response from Login", response);
+        console.log("Response From Reg", response);
       })
       .catch((error) => {
-        console.log("error from login", error);
+        console.log("error from Reg", error);
       });
   };
 
-  console.log(props);
   return (
     <div className="form-div">
-      <h1> Login</h1>
-      <LoginForm
-        user={input}
+      <h1>Register Here</h1>
+      <RegistrationForm
         handleChange={handleChange}
         handleSubmit={handleSubmit}
+        user={input}
       />
     </div>
   );
 };
-
-export default Login;
+export default Register;
